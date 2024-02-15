@@ -11,4 +11,8 @@ p.s. В качестве тестовой операционной систем�
 5. Установка и настройка mariadb, создание польователя, базы данных
 6. Развертывание CMS WordPress **(:8080)**
 7. Развертывание prometheus: /etc/prometheus# "**docker run -d -p 9090:9090 --user root -v ./prom_data:/prometheus -v ./prometheus.yml:/etc/prometheus/prometheus.yml --name prom prom/prometheus**"
-8. 
+8. Установка node_exporter и настройка (/etc/systemd/system/node_exporter.service)
+9. Установка blackbox и настройка (/lib/systemd/system/blackbox.service).
+10. В конфиге prometheus.yml добавил job'ы для prometheus, docker, node_exporter и blackbox (разделил на два job'а согласно документации на гитхабе:
+                                                                                                                                                    job blackbox          - добавил таргеты на веб-сайты (в т.ч. сайт WP на порту :8080)
+                                                                                                                                                    job blackbox_exporter - порт :9115 
